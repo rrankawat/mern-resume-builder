@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 
 import users from './routes/users.js'
+import users from './routes/resume.js'
 
 dotenv.config()
 connectDB()
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/users', users)
+app.use('/api/v1/users/:userId/resume', resume)
 
 app.listen(PORT, () =>
   console.log(`Server is running in ${NODE_ENV} environment on port ${PORT}`)
